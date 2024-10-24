@@ -5,11 +5,11 @@ import java.net.HttpURLConnection;
 
 public class StringEncryptor {
 
-    // Native method declaration for encryption (will be implemented in C++)
+    // Native method declaration for encryption
     public native String encryptString(String input);
 
     static {
-        // Load the native library (we will compile this later in C++)
+        // Load the native library
         System.loadLibrary("NativeHashingEncryption");
     }
 
