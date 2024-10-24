@@ -16,6 +16,8 @@ Project Structure:
             NativeHashingEncryption.cpp
          /resources    (Resources like the public key)
             pi-xcels_public_key.pem
+   /scripts      (Python and other utility scripts)
+      convert_to_pem.py  (Script to convert JWK to PEM format)
    /bin                 (Compiled .class and .jar files)
    README.md            (Project documentation)
    build.sh             (Build script for automating the process)
@@ -23,6 +25,7 @@ Project Structure:
 - src/main/java: Contains the Java source code (StringEncryptor.java).
 - src/main/native: Contains the C++ source code and the compiled library (libNativeHashingEncryption.dylib).
 - src/main/resources: Contains resources such as the public key (pi-xcels_public_key.pem).
+- src/main/scripts: Contains utility scripts like `convert_to_pem.py` for converting JWK to PEM format.
 - bin: Stores compiled .class and .jar files.
 - README.md: Documentation for the project.
 - build.sh: A bash script to automate the compilation and packaging process.
@@ -35,6 +38,22 @@ Before building and running this project, ensure that the following tools are in
 - OpenSSL: Required for cryptographic operations in the C++ code.
 - g++: The GNU C++ compiler for compiling the native code.
 - Bash: If using the provided build script.
+- Python: Required to run the `convert_to_pem.py` script.
+
+Public Key Conversion (JWK to PEM):
+
+This project includes a Python script (convert_to_pem.py) that converts the JWK (JSON Web Key) format into PEM format, which is needed for the encryption process. The script also logs each step and outputs the full path of the saved PEM file.
+
+Usage
+
+- Make sure the pi-xcels.json file (which contains the public key in JWK format) is in the /src/main/scripts folder.
+- Run the Python script to convert the public key:
+
+python src/main/scripts/convert_to_pem.py
+
+- The script will log the process and save the converted pi-xcels_public_key.pem file in the /src/main/resources folder.
+
+Building and Running the Project:
 
 Step 1: Compile the C++ Code
 
